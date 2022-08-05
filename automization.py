@@ -92,6 +92,26 @@ async def 정회원(ctx):
     await ctx.send("-------------------------------------------")
     await ctx.send("FINISH")
 
+@bot.command()
+async def 준회원(ctx):
+    await ctx.send("-------------------------------------------")
+    await ctx.send("준회원 목록")
+    await ctx.send("-------------------------------------------")
+
+    f = open("serverId.txt","r")
+    serverId = int(f.readline())
+    f.close()
+    server = bot.get_guild(serverId)
+
+    for i in range(len(server.members)):
+        member = server.members[i]
+        name = member.name
+        nickname = member.nick
+        discriminator = member.discriminator
+        if len(member.roles) == 1:
+            await ctx.send(f'이름 : {name}, 닉네임 : {nickname}, 사용자번호 : {discriminator}')
+    await ctx.send("FINISH")
+
 # 보안 때문에 봇 token 값은 다른 파일에 보관 + gitignore 파일에 해당 txt 파일을 추가해서 깃허브에 올라가지 않도록
 f = open("token.txt","r")
 TOKEN = f.readline()

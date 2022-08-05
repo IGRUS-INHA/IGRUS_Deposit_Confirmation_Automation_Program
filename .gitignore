@@ -6,6 +6,7 @@ final.xlsx
 serverId.txt
 deposit.xlsx
 existing_member.xlsx
+former_management.xlsx
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
