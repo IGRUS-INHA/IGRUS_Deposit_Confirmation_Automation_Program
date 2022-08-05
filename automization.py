@@ -15,7 +15,7 @@ async def on_ready():
     print(bot.user.id)
     print('------------')
 
-
+@commands.has_permissions(manage_channels=True)
 @bot.command()
 async def 정회원(ctx):
     f = open("serverId.txt","r")
@@ -92,6 +92,7 @@ async def 정회원(ctx):
     await ctx.send("-------------------------------------------")
     await ctx.send("FINISH")
 
+@commands.has_permissions(manage_channels=True)
 @bot.command()
 async def 준회원(ctx):
     await ctx.send("-------------------------------------------")
