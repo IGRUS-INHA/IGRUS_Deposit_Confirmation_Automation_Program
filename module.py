@@ -25,3 +25,8 @@ def saveListOfGoogleFormWriter():
     dfx=readGoogleFormResult()
     dfx.to_excel('botreader.xlsx',sheet_name='sheet1')
     return dfx
+
+def readMilitaryLeaveMemberList():
+    dfx=pd.read_excel("existing_member.xlsx",usecols=[1,5,7])
+    dfx=dfx[dfx["현재 상태 (2022년 2학기 기준)"]=="휴학생(군휴학)"]
+    return dfx

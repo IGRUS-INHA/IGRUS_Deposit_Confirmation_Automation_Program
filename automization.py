@@ -38,6 +38,10 @@ async def 정회원(ctx):
     await ctx.send(listOfGoogleFormWriter)
     await ctx.send("-------------------------------------------")
 
+    militaryLeaveMemberList = readMilitaryLeaveMemberList()
+    await ctx.send("기존 회원 중 군휴학자: ")
+    await ctx.send(militaryLeaveMemberList)
+    await ctx.send("-------------------------------------------")
 
     checkMemberList = []
 
@@ -66,9 +70,25 @@ async def 정회원(ctx):
                         break
                 else:
                     if nickname == checkName:
-                        await member.add_roles("정회원")
+                        await member.add_roles(role)
                         await ctx.send(f'사용자번호 #{discriminator} {checkName} 님이 정회원이 되었습니다')
-                        break        
+                        break 
+
+        # 군휴학
+        for j in range(len(militaryLeaveMemberList)):
+           checkName = militaryLeaveMemberList.values[j][0]
+           checkDiscriminator = militaryLeaveMemberList.values[j][2][len(militaryLeaveMemberList.values[j][2]) - 4:] 
+           if checkDiscriminator == discriminator:
+               if nickname == None:
+                   if name == checkName:
+                       await member.add_roles(role)
+                       await ctx.send(f'사용자번호 #{discriminator} {checkName} 님이 정회원이 되었습니다')
+                       break
+               else:
+                   if nickname == checkName:
+                       await member.add_roles(role)
+                       await ctx.send(f'사용자번호 #{discriminator} {checkName} 님이 정회원이 되었습니다')
+                       break
     await ctx.send("-------------------------------------------")
     await ctx.send("FINISH")
 
