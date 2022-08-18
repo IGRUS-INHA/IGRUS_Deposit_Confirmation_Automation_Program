@@ -40,7 +40,7 @@ async def 정회원(ctx):
 
     militaryLeaveMemberList = readMilitaryLeaveMemberList()
     await ctx.send("기존 회원 중 군휴학자: ")
-    await ctx.send(militaryLeaveMemberList)
+    await ctx.send(militaryLeaveMemberList.values)
     await ctx.send("-------------------------------------------")
 
     checkMemberList = []
@@ -61,7 +61,9 @@ async def 정회원(ctx):
             continue
         for j in range(len(checkMemberList)):
             checkName = checkMemberList[j][0][2:]
-            checkDiscriminator = checkMemberList[j][1][1:]
+            if len(checkMemberList[j][0]) <= 3:
+                checkName = checkMemberList[j][0]
+            checkDiscriminator = checkMemberList[j][1][len(checkMemberList[j][1]) - 4:]
             if checkDiscriminator == discriminator:
                 if nickname == None:
                     if name == checkName:
