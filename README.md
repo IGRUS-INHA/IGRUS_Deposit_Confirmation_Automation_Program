@@ -1,5 +1,4 @@
 # 아이그루스 회비 입금 확인 자동화 디스코드 봇
-개발자 : <a href="https://github.com/Yun-YeoJun">윤여준</a>, <a href="https://github.com/Jimin0430">최지민</a><br>
 개발 기간 : 2022-08-03 ~ 2022-08-04
 
 ## 개요
